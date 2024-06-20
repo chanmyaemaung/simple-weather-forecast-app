@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+
+class HourlyForecastItem extends StatelessWidget {
+  final IconData icon;
+  final String time;
+  final String temperature;
+
+  const HourlyForecastItem(
+      {super.key,
+      required this.icon,
+      required this.time,
+      required this.temperature});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 6.0,
+      child: Container(
+        padding: const EdgeInsets.all(8.0),
+        width: 100.0,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12.0),
+        ),
+        child: Column(
+          children: [
+            Text(
+              time,
+              style: const TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const SizedBox(
+              height: 8.0,
+            ),
+            Icon(
+              icon,
+              size: 32.0,
+            ),
+            const SizedBox(
+              height: 8.0,
+            ),
+            Text(
+              temperature,
+              style: const TextStyle(
+                fontSize: 16.0,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
